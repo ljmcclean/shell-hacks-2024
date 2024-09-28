@@ -12,13 +12,7 @@ h1 {
 }
 
 p {
+  margin-inline-start: 82%;
   color: var(--clr-txt);
   font-size: calc(var(--fs-xl) / 2);
 }
-
-p {
-  color: var(--clr-p);
-  font-weight: bold;
-}
-
-a {}

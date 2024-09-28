@@ -23,7 +23,7 @@ func addRoutes(mux *http.ServeMux, auth *auth.Authenticator) {
 
 	mux.Handle("/logout", sessions.IsAuthenticated(handlers.Logout()))
 
-	mux.Handle("/callback", sessions.IsAuthenticated(handlers.Callback(auth)))
+	mux.Handle("/callback", handlers.Callback(auth))
 
 	mux.Handle("/dashboard", sessions.IsAuthenticated(handlers.Dashboard()))
 }
