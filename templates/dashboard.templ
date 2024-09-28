@@ -5,7 +5,12 @@ import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 templ Dashboard(userName string) {
 	@components.Document() {
 		@components.Head("Dashboard") {
+			<link rel="stylesheet" href="/assests/css/dashboard.css">
 		}
+		<body>
+		<a class="btn-logout" href="/logout">logout</a>
+		<p id="test"></p>
+		</body>
 		<h1>Welcome, { userName }</h1>
 	}
 }
