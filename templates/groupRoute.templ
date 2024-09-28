@@ -3,11 +3,15 @@ package templates
 import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 
 templ GroupRoute(distance, duration string) {
-@components.Document() {
-@components.Head("Your Group's Route") {
-<link rel="stylesheet" href="/assets/css/groupRoute.css" />
-}
-
-<body></body>
-}
+	@components.Document() {
+		@components.Head("Your Group's Route") {
+			<link rel="stylesheet" href="/assets/css/groupRoute.css"/>
+		}
+		<body>
+			<form>
+				<input name="end" placeholder="End location"/>
+				<input name="start" placeholder="Start location"/>
+			</form>
+		</body>
+	}
 }
