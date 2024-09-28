@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/ljmcclean/shell-hacks-2024/server/auth"
@@ -40,6 +41,7 @@ func Callback(auth *auth.Authenticator) http.Handler {
 
 		session.Values["access_token"] = token.AccessToken
 		session.Values["profile"] = profile
+		log.Printf("Values: %v+", session.Values)
 
 		if err := sessions.Store.Save(r, w, session); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
