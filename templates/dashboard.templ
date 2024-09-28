@@ -3,17 +3,16 @@ package templates
 import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 
 templ Dashboard(userName string) {
-	@components.Document() {
-		@components.Head("Dashboard") {
-			<link rel="stylesheet" href="/assests/css/dashboard.css">
-		}
-		<body>
-		<a class="myButton" href="https://matias.me/nsfw/">For me</a>
-		<a class="myButton" href="https://matias.me/nsfw/">For a group</a>
-		<a class="btn-logout" href="/logout">logout</a>
-		<h1>Welcome, { userName }</h1>
+@components.Document() {
+@components.Head("Dashboard") {
+<link rel="stylesheet" href="/assests/css/dashboard.css" />
+}
 
-		</body>
-		
-	}
+<body>
+	<a class="myButton" href="https://matias.me/nsfw/">For me</a>
+	<a class="myButton" href="https://matias.me/nsfw/">For a group</a>
+	<a class="btn-logout" href="/logout">logout</a>
+	<h1>Welcome, { userName }</h1>
+</body>
+}
 }

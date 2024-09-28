@@ -3,18 +3,17 @@ package templates
 import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 
 templ Index() {
-@components.Document() {
-@components.Head("Hello, World!") {
-<link rel="stylesheet" href="/assets/css/index.css" />
-}
-
-<body>
-	<h1>
-		Wander Yonder
-		<br />
-		<span>.Club</span>
-	</h1>
-	<a href="/login">Log In</a>
-</body>
-}
+	@components.Document() {
+		@components.Head("Hello, World!") {
+			<link rel="stylesheet" href="/assets/css/index.css"/>
+		}
+		<body>
+			<h1>
+				Wander Yonder
+				<br/>
+				<p>.Club</p>
+			</h1>
+			<a href="/login">Log In</a>
+		</body>
+	}
 }
