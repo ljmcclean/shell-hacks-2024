@@ -2,10 +2,11 @@ package handlers
 
 import (
 	"net/http"
+
+	"github.com/a-h/templ"
+	"github.com/ljmcclean/shell-hacks-2024/templates"
 )
 
 func Dashboard() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("dashboard"))
-	})
+	return templ.Handler(templates.Dashboard())
 }
