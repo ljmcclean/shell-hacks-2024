@@ -1,0 +1,17 @@
+package templates
+package components
+
+import(
+    "os"
+)
+
+templ SingleRoute(duration, distance float64, transportType, start, end string) {
+	@component.Document() {
+        @component.Head("Single Route") {
+            <link rel="stylesheet" href="/assets/css/singleRoute.css">
+        }
+        <body>
+        </body>
+    }
+}
+
