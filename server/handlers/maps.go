@@ -15,6 +15,10 @@ func GroupRoute() http.Handler {
 	return templ.Handler(templates.GroupRoute())
 }
 
-func getRouteData() {
+func getRouteData(start, end string) {
+	apiKey, err := 
+
+	url := fmt.Sprintf("https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=%s", start, end, apiKey)
+	res, err := http.Get()
 
 }
