@@ -2,10 +2,10 @@ package templates
 
 import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 
-templ Dashboard() {
-@components.Document() {
-@components.Head("Dashboard") {
-}
-<h1>Dashboard</h1>
-}
+templ Dashboard(userName string) {
+	@components.Document() {
+		@components.Head("Dashboard") {
+		}
+		<h1>Welcome, { userName }</h1>
+	}
 }

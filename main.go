@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/gob"
 	"log"
 	"net/http"
 	"os"
@@ -23,6 +24,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("error failed to initialize authenticator: %s", err)
 	}
+
+	gob.Register(map[string]interface{}{})
 
 	err = run(ctx, auth)
 	if err != nil {

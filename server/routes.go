@@ -17,7 +17,10 @@ func addRoutes(mux *http.ServeMux, auth *auth.Authenticator) {
 	mux.Handle("/static/", http.StripPrefix("/static/", staticFS))
 
 	mux.Handle("/{$}", templ.Handler(templates.Index()))
+
 	mux.Handle("/login", handlers.Login(auth))
+
+	mux.Handle("/callback", handlers.Callback(auth))
 
 	mux.Handle("/dashboard", handlers.Dashboard())
 }
