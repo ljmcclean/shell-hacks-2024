@@ -1,0 +1,13 @@
+body {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  background: linear-gradient(45deg, var(--clr-p) 50%, var(--clr-bg) 50%);
+}
+
+h1 {
+  grid-row: 2 / 3;
+  background: linear-gradient(45deg, var(--clr-bg) 50%, var(--clr-p) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

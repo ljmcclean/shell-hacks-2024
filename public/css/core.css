@@ -5,8 +5,8 @@
   /* Color Palette */
   --clr-txt: light-dark(#080809, #f8f8f8);
   --clr-bg: light-dark(#f8f8f8, #080809);
-  --clr-p: #43592E;
-  --clr-a: #81A54A;
+  --clr-p: #f9a648;
+  --clr-a: #f0f;
 
   /* Font Sizes */
   --fs-s: clamp(1rem, 3vw, 1.5rem);
@@ -15,9 +15,8 @@
 }
 
 /* BASE STYLES */
-* {
-  color: var(--clr-txt);
-  background: var(--clr-bg);
+body {
+  min-height: 100svh;
 }
 
 p,
