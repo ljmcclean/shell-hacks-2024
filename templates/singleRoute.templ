@@ -1,0 +1,25 @@
+package templates
+
+import "github.com/ljmcclean/shell-hacks-2024/templates/components"
+
+templ SingleRoute(distance, duration string) {
+@components.Document() {
+@components.Head("Your Route") {
+<link rel="stylesheet" href="/assets/css/groupRoute.css" />
+<script src="/static/htmx.min.js" defer></script>
+}
+
+<body>
+	<form hx-post="/group-route" hx-target="#map">
+		<input name="end" placeholder="End location" />
+		<input name="start" placeholder="Start location" />
+		<button>Go</button>
+	</form>
+	<div id="map"></div>
+	<div>
+		<p>Distance: { distance }</p>
+		<p>Duration: { duration }</p>
+	</div>
+</body>
+}
+}
