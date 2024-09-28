@@ -11,7 +11,6 @@ import (
 
 func Login(auth *auth.Authenticator) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-
 		state, err := generateRandomState()
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
