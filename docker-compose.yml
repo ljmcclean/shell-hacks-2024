@@ -1,0 +1,16 @@
+services:
+  server:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes: # Remove for deployment
+      - ./:/server
+    deploy:
+      resources:
+        reservations:
+          memory: 50M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
