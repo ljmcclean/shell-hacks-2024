@@ -25,6 +25,14 @@ func Logout() http.Handler {
 		parameters.Add("client_id", os.Getenv("AUTH0_CLIENT_ID"))
 		logoutUrl.RawQuery = parameters.Encode()
 
+		cookie := &http.Cookie{
+			Name:   "auth-session",
+			Value:  "",
+			Path:   "/",
+			MaxAge: -1,
+		}
+		http.SetCookie(w, cookie)
+
 		http.Redirect(w, r, logoutUrl.String(), http.StatusTemporaryRedirect)
 	})
 }

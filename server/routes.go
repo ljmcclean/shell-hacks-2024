@@ -6,6 +6,7 @@ import (
 	"github.com/a-h/templ"
 	"github.com/ljmcclean/shell-hacks-2024/server/auth"
 	"github.com/ljmcclean/shell-hacks-2024/server/handlers"
+	"github.com/ljmcclean/shell-hacks-2024/server/sessions"
 	"github.com/ljmcclean/shell-hacks-2024/templates"
 )
 
@@ -20,9 +21,9 @@ func addRoutes(mux *http.ServeMux, auth *auth.Authenticator) {
 
 	mux.Handle("/login", handlers.Login(auth))
 
-	mux.Handle("/logout", handlers.Logout())
+	mux.Handle("/logout", sessions.IsAuthenticated(handlers.Logout()))
 
-	mux.Handle("/callback", handlers.Callback(auth))
+	mux.Handle("/callback", sessions.IsAuthenticated(handlers.Callback(auth)))
 
-	mux.Handle("/dashboard", handlers.Dashboard())
+	mux.Handle("/dashboard", sessions.IsAuthenticated(handlers.Dashboard()))
 }
