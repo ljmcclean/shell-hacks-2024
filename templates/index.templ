@@ -3,13 +3,13 @@ package templates
 import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 
 templ Index() {
-@components.Document() {
-@components.Head("Hello, World!") {
-<script src="/static/htmx.min.js" defer></script>
-}
-
-<body>
-	<h1>Hello, World!</h1>
-</body>
-}
+	@components.Document() {
+		@components.Head("Hello, World!") {
+			<script src="/static/htmx.min.js" defer></script>
+		}
+		<body>
+			<h1>Hello, World!</h1>
+			<a href="/login">Log In</a>
+		</body>
+	}
 }

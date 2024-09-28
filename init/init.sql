@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS account (
+  id SERIAL PRIMARY KEY,
+  email text UNIQUE NOT NULL
+);

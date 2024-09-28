@@ -8,6 +8,9 @@ import (
 	"os/signal"
 	"sync"
 	"time"
+
+	"github.com/ljmcclean/shell-hacks-2024/server"
+	"github.com/ljmcclean/shell-hacks-2024/server/auth"
 )
 
 const port = ":3000"
@@ -16,17 +19,22 @@ const killTime = 10 // time allotted for shutdown in seconds
 func main() {
 	ctx := context.Background()
 
-	err := run(ctx)
+	auth, err := auth.New(ctx)
+	if err != nil {
+		log.Fatalf("error failed to initialize authenticator: %s", err)
+	}
+
+	err = run(ctx, auth)
 	if err != nil {
 		log.Fatalf("server closed with error: %s\n", err)
 	}
 }
 
-func run(ctx context.Context) error {
+func run(ctx context.Context, auth *auth.Authenticator) error {
 	ctx, cancel := signal.NotifyContext(ctx, os.Interrupt)
 	defer cancel()
 
-	server := NewServer(port)
+	server := server.New(port, auth)
 
 	go func() {
 		log.Printf("listening and serving on %s\n", server.Addr)
