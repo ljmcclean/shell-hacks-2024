@@ -26,4 +26,8 @@ func addRoutes(mux *http.ServeMux, auth *auth.Authenticator) {
 	mux.Handle("/callback", handlers.Callback(auth))
 
 	mux.Handle("/dashboard", sessions.IsAuthenticated(handlers.Dashboard()))
+
+	mux.Handle("/single-route", handlers.SingleRoute())
+
+	mux.Handle("/group-route", handlers.MultipleRoute())
 }
