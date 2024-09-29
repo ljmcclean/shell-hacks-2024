@@ -29,5 +29,7 @@ func addRoutes(mux *http.ServeMux, auth *auth.Authenticator) {
 
 	mux.Handle("/single-route", handlers.SingleRoute())
 
-	mux.Handle("/group-route", handlers.MultipleRoute())
+	mux.Handle("/group-route", handlers.GroupRoute())
+
+	mux.Handle("/map-info", handlers.Map())
 }

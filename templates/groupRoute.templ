@@ -3,23 +3,24 @@ package templates
 import "github.com/ljmcclean/shell-hacks-2024/templates/components"
 
 templ GroupRoute() {
-	@components.Document() {
-		@components.Head("Your Group's Route") {
-			<link rel="stylesheet" href="/assets/css/groupRoute.css"/>
-			<script src="/static/htmx.min.js" defer></script>
-		}
-		<body>
-			<div id="left">
-				<form hx-post="/map" hx-target="#render">
-					<input name="end" placeholder="End location"/>
-					<input name="start" placeholder="Start location"/>
-					<button>Go</button>
-				</form>
-			</div>
-			@components.MapSection("", "")
-			<div id="right">
-				<ul></ul>
-			</div>
-		</body>
-	}
+@components.Document() {
+@components.Head("Your Group's Route") {
+<link rel="stylesheet" href="/assets/css/groupRoute.css" />
+<script src="/static/htmx.min.js" defer></script>
+}
+
+<body>
+	<div id="left">
+		<form hx-post="/map-info" hx-target="#render" hx-swap="outerHTML">
+			<input name="end" placeholder="End location" />
+			<input name="start" placeholder="Start location" />
+			<button>Go</button>
+		</form>
+	</div>
+	@components.MapSection(0, 0)
+	<div id="right">
+		<ul></ul>
+	</div>
+</body>
+}
 }

@@ -1,11 +1,13 @@
 package components
 
-templ MapSection(distance, duration string) {
-	<div id="render">
-		<div></div>
-		<div>
-			<p>Distance: { distance }</p>
-			<p>Duration: { duration }</p>
-		</div>
+import "strconv"
+
+templ MapSection(distance, duration float64) {
+<div id="render">
+	<div></div>
+	<div>
+		<p>Distance: { strconv.FormatFloat(distance, 'f', 2, 64) }</p>
+		<p>Duration: { strconv.FormatFloat(duration, 'f', 2, 64) }</p>
 	</div>
+</div>
 }
